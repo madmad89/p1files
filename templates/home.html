@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %} HOME {% endblock %}
+
+{% block content %}
+    {#    <!-- Caruselul cu imagini -->#}
+    {#    <div id="carousel">#}
+    {#        {% for image in images %}#}
+    {#            <div class="carousel-item">#}
+    {#                <img src="{{ image.image.url }}" alt="{{ image.alt_text }}">#}
+    {#            </div>#}
+    {#        {% endfor %}#}
+    {#    </div>#}
+
+
+    {#<div id="carouselExample" class="carousel slide">#}
+    {#  <div class="carousel-inner">#}
+    {#    <div class="carousel-item active">#}
+    {#      <img src="..." class="d-block w-100" alt="...">#}
+    {#    </div>#}
+    {#    <div class="carousel-item">#}
+    {#      <img src="..." class="d-block w-100" alt="...">#}
+    {#    </div>#}
+    {#    <div class="carousel-item">#}
+    {#      <img src="..." class="d-block w-100" alt="...">#}
+    {#    </div>#}
+    {#  </div>#}
+    {#  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">#}
+    {#    <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+    {#    <span class="visually-hidden">Previous</span>#}
+    {#  </button>#}
+    {#  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">#}
+    {#    <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+    {#    <span class="visually-hidden">Next</span>#}
+    {#  </button>#}
+    {#</div>#}
+
+
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            {% for image in images %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.alt_text }}">
+                </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
+
+    <!-- Secțiunea cu servicii -->
+    <div id="services">
+        <h2>Serviciile noastre</h2>
+        {% for service in services %}
+            <div class="service-item">
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Secțiunea cu produse -->
+    <div id="products">
+        <h2>Produsele noastre</h2>
+        {% for product in products %}
+            <div class="product-item">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+                <p>Pret: {{ product.price }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
