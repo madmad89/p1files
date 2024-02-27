@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='template/carousel_images/')
+    image = models.ImageField(upload_to='static/carousel_images/')
     alt_text = models.CharField(max_length=255)
 
     def __str__(self):
@@ -23,7 +23,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(upload_to='template/product_images/')
+    image = models.ImageField(upload_to='static/product_images/')
     available = models.BooleanField(default=True)
 
     def __str__(self):
